@@ -4,15 +4,27 @@ from django.utils import timezone
 
 
 class News(models.Model):
+    STATUS_CHOICES = (
+        ("draft", "Draft"),
+        ("published", "Published"),
+    )
     title = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=200,
+                            unique_for_date="published_date",
+                            default="")
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
                                related_name="news")
     body = models.TextField()
-    published_date = models.DateTimeField(default=timezone.now())
+    status = models.CharField(max_length=20,
+                              choices=STATUS_CHOICES,
+                              default="draft"
+                              )
+    published_date = models.DateTimeField(default=timezone.now)
 
     class Meta:
         ordering = ("-published_date",)
+        verbose_name_plural = "News"
 
     def __str__(self):
         return self.title
