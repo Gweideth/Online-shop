@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.urls import reverse
 
 
 class PublishedManager(models.Manager):
@@ -29,6 +30,13 @@ class News(models.Model):
 
     objects = models.Manager()
     published = PublishedManager()
+
+    def get_absolute_url(self):
+        return reverse("news:news_detail",
+                       args=[self.published.year,
+                             self.published.strftime("%m"),
+                             self.published.strftime("%d"),
+                             self.slug])
 
     class Meta:
         ordering = ("-published_date",)
