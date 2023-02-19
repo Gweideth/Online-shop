@@ -9,10 +9,10 @@ class News(models.Model):
                                on_delete=models.CASCADE,
                                related_name="news")
     body = models.TextField()
-    published = models.DateTimeField(default=timezone.now())
+    published_date = models.DateTimeField(default=timezone.now())
 
     class Meta:
-        ordering = ("-published",)
+        ordering = ("-published_date",)
 
     def __str__(self):
         return self.title
@@ -23,11 +23,11 @@ class Comments(models.Model):
                                 on_delete=models.CASCADE,
                                 related_name="comments")
     author = models.CharField(max_length=30)
-    body = models.TextField()
-    published = models.DateTimeField(default=timezone.now())
+    body = models.CharField(max_length=200)
+    published_date = models.DateTimeField(default=timezone.now())
 
     class Meta:
-        ordering = ("-published",)
+        ordering = ("-published_date",)
 
     def __str__(self):
         return f"Komentarz dodany przez {self.author}"
