@@ -3,6 +3,11 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(status="published")
+
+
 class News(models.Model):
     STATUS_CHOICES = (
         ("draft", "Draft"),
@@ -21,6 +26,9 @@ class News(models.Model):
                               default="draft"
                               )
     published_date = models.DateTimeField(default=timezone.now)
+
+    objects = models.Manager()
+    published = PublishedManager()
 
     class Meta:
         ordering = ("-published_date",)
