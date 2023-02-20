@@ -9,7 +9,7 @@ class PublishedManager(models.Manager):
         return super(PublishedManager, self).get_queryset().filter(status="published")
 
 
-class News(models.Model):
+class Post(models.Model):
     STATUS_CHOICES = (
         ("draft", "Draft"),
         ("published", "Published"),
@@ -20,23 +20,15 @@ class News(models.Model):
                             default="")
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
-                               related_name="news")
-    body = models.TextField()
+                               related_name="shop_posts")
+    body = models.TextField(default="")
     status = models.CharField(max_length=20,
                               choices=STATUS_CHOICES,
-                              default="draft"
-                              )
+                              default="draft")
     published_date = models.DateTimeField(default=timezone.now)
 
     objects = models.Manager()
     published = PublishedManager()
-
-    def get_absolute_url(self):
-        return reverse("news:news_detail",
-                       args=[self.published.year,
-                             self.published.strftime("%m"),
-                             self.published.strftime("%d"),
-                             self.slug])
 
     class Meta:
         ordering = ("-published_date",)
@@ -45,9 +37,16 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("shop:post_detail",
+                       args=[self.published_date.year,
+                             self.published_date.strftime("%m"),
+                             self.published_date.strftime("%d"),
+                             self.slug])
+
 
 class Comments(models.Model):
-    comment = models.ForeignKey(News,
+    comment = models.ForeignKey(Post,
                                 on_delete=models.CASCADE,
                                 related_name="comments")
     author = models.CharField(max_length=30)
@@ -59,3 +58,5 @@ class Comments(models.Model):
 
     def __str__(self):
         return f"Komentarz dodany przez {self.author}"
+
+

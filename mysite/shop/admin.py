@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import News
+from .models import Post
 
 
-@admin.register(News)  # means the same as "admin.site.register()
-class NewsAdmin(admin.ModelAdmin):
+@admin.register(Post)  # means the same as "admin.site.register()
+class PostAdmin(admin.ModelAdmin):
     list_display = ("title", "author", "published_date", "status")
     list_filter = ("status", "author", "published_date")
     search_fields = ("title", "body")

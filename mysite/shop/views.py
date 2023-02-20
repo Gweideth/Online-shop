@@ -1,20 +1,21 @@
 from django.shortcuts import render, get_object_or_404
-from .models import News
+from .models import Post
 
 
-def news_list(request):
-    news = News.published.all()
+def post_list(request):  # possibility to change code to simpler
+    # https://docs.djangoproject.com/pl/4.1/topics/class-based-views/generic-display/
+    posts = Post.published.all()
     return render(request,
-                  "shop/news/list.html",
-                  {"news": news})
+                  "shop/post/list.html",
+                  {"posts": posts})
 
 
-def news_detail(request, year, month, day, news):
-    news = get_object_or_404(News, slug=news,
+def post_detail(request, year, month, day, post):
+    post = get_object_or_404(Post, slug=post,
                              status="published",
-                             published_year=year,
-                             published_month=month,
-                             published_day=day)
+                             published_date__year=year,
+                             published_date__month=month,
+                             published_date__day=day)
     return render(request,
-                  "blog/news/detail.html",
-                  {"news": news})
+                  "shop/post/detail.html",
+                  {"post": post})
