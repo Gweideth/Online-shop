@@ -52,9 +52,11 @@ class Comments(models.Model):
     author = models.CharField(max_length=30)
     body = models.CharField(max_length=200)
     published_date = models.DateTimeField(default=timezone.now())
+    active = models.BooleanField(default=True)
 
     class Meta:
         ordering = ("-published_date",)
+        verbose_name_plural = "Comments"
 
     def __str__(self):
         return f"Komentarz dodany przez {self.author}"
