@@ -22,16 +22,17 @@
             </p>
             {{ comment.body|linebreaks }}
         </div>
-        {% empty %}
-            <p>Nie ma jeszcze komentarzy</p>
-        {% endfor %}
+    {% empty %}
+        <p>Nie ma jeszcze komentarzy</p>
+    {% endfor %}
     {% if new_comment %}
         <h2>Komentarz dodany.</h2>
     {% else %}
         <h2>Dodaj nowy komentarz</h2>
-        <form action="." method="post">
+        <form method="post">
             {{ comment_form.as_p }}
             {%  csrf_token %}
             <p><input type="submit" value="Dodaj komentarz"></p>
         </form>
+    {% endif %}
 {% endblock %}
