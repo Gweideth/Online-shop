@@ -29,7 +29,7 @@
         <h2>Komentarz dodany.</h2>
     {% else %}
         <h2>Dodaj nowy komentarz</h2>
-        <form method="post">
+        <form method="post" action=".">
             {{ comment_form.as_p }}
             {%  csrf_token %}
             <p><input type="submit" value="Dodaj komentarz"></p>
