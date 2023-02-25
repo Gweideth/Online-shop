@@ -18,6 +18,8 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200,
                             unique_for_date="published_date",
                             default="")
+    image = models.ImageField(upload_to='posts/%Y/%m/%d',
+                              blank=True)
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE,
                                related_name="shop_posts")

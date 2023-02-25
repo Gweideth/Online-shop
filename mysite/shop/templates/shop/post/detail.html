@@ -3,6 +3,8 @@
 {% block title %} {{ post.title }} {% endblock %}
 
 {% block content %}
+    <h1>GEO Aktualności</h1>
+    <img src="{{ post.image.url }}" width="349">
     <h1>{{ post.title }}</h1>
     <p class="date">
         Opublikowany {{ post.published_date }} przez {{ post.author }}
@@ -29,7 +31,7 @@
         <h2>Komentarz dodany.</h2>
     {% else %}
         <h2>Dodaj nowy komentarz</h2>
-        <form method="post" action="{{ post.get_absolute_url }}">
+        <form method="post" action="{{ post.get_absolute.url }}">
             {{ comment_form.as_p }}
             {%  csrf_token %}
             <p><input type="submit" value="Dodaj komentarz"></p>
