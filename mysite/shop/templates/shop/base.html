@@ -5,9 +5,33 @@
         <link href="{% static 'css/shop.css' %}" rel="stylesheet">
     </head>
     <body>
-        <div id="content">
-            {% block content %}
-            {% endblock %}
+    <div class="header">
+        <ul>
+            <li>O NAS</li>
+            <li><a href="http://127.0.0.1:8000/news/">AKTUALNOŚCI</a></li>
+            <li><a href="http://127.0.0.1:8000/store/">SKLEP</a></li>
+            <li>KONTAKT</li>
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="footer">
+        <ul class="social-media">
+            <li><a href="http://facebook.com/">Facebook</a></li>
+            <li><a href="http://youtube.com/">Youtube</a></li>
+            <li>Google Drive</li>
+        </ul>
+        <ul class="contact">
+            <li>123-456-789</li>
+            <li>8.00-16.00</li>
+            <li>00-000 Warszawa, ul. XYZ 10</li>
+            <li>geo@geo.com</li>
+        </ul>
+        <div class="google-maps">
+            Google Maps
         </div>
+    </div>
     </body>
 </html>

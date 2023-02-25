@@ -3,6 +3,8 @@
 {% block title %} {{ post.title }} {% endblock %}
 
 {% block content %}
+    <h1>GEO Aktualności</h1>
+    <img src="{{ post.image.url }}" width="349">
     <h1>{{ post.title }}</h1>
     <p class="date">
         Opublikowany {{ post.published_date }} przez {{ post.author }}

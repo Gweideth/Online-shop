@@ -3,8 +3,11 @@
 {% block title %}GEO News{% endblock %}
 
 {% block content %}
-    <h1>GEO News</h1>
+    <h1>GEO Aktualności</h1>
         {% for post in posts %}
+            <a href="{{ post.get_absolute_url }}">
+                <img src="{{ post.image.url }}" width="202">
+            </a>
             <h2>
                 <a href="{{ post.get_absolute_url }}">
                     {{ post.title }}
