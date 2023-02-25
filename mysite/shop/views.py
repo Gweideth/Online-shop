@@ -61,3 +61,6 @@ def product_detail(request, id, slug):
     return render(request,
                   'shop/product/detail.html',
                   {'product': product})
+
+# MAIN_SITE
+

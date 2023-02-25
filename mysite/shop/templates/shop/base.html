@@ -7,9 +7,9 @@
     <body>
     <div class="header">
         <ul>
-            <li>O NAS</li>
-            <li><a href="http://127.0.0.1:8000/news/">AKTUALNOŚCI</a></li>
-            <li><a href="http://127.0.0.1:8000/store/">SKLEP</a></li>
+            <li><a href="">O NAS</a></li>
+            <li><a href="{% url 'news:post_list' %}">AKTUALNOŚCI</a></li>
+            <li><a href="{% url 'store:product_list' %}">SKLEP</a></li>
             <li>KONTAKT</li>
         </ul>
     </div>
