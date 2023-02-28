@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from .models import Post, Comments, Category, Product
 from .forms import CommentForm
+from cart.forms import CartAddForm
 
 
 class PostListView(ListView):
@@ -57,10 +58,12 @@ def product_detail(request, id, slug):
                                 id=id,
                                 slug=slug,
                                 available=True)
+    cart_product_form: CartAddForm = CartAddForm()
 
     return render(request,
                   'shop/product/detail.html',
-                  {'product': product})
+                  {'product': product,
+                   "cart_product_form": cart_product_form})
 
 # MAIN_SITE
 
