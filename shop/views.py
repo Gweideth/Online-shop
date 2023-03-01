@@ -58,7 +58,7 @@ def product_detail(request, id, slug):
                                 id=id,
                                 slug=slug,
                                 available=True)
-    cart_product_form: CartAddForm = CartAddForm()
+    cart_product_form = CartAddForm()
 
     return render(request,
                   'shop/product/detail.html',
