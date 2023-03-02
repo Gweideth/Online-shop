@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "shop.apps.ShopConfig",
     "cart.apps.CartConfig",
     "orders.apps.OrdersConfig",
+    "main.apps.MainConfig",
+    "news.apps.NewsConfig",
 ]
 
 MIDDLEWARE = [
@@ -52,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'Online-shop.urls'
 
 TEMPLATES = [
     {
