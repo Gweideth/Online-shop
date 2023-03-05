@@ -32,6 +32,6 @@ urlpatterns = [
          include("news.urls",
                      namespace="news")),
     path("",
-         include("shop.urls",
-                     namespace="main_site")),
+         include("main.urls",
+                     namespace="main")),
 ]
