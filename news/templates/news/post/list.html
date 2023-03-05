@@ -1,19 +1,19 @@
 {% extends "main/base.html" %}
 
-{% block title %}GEO News{% endblock %}
+{% block title %}GEO Aktualności{% endblock %}
 
 {% block content %}
-    <h1>GEO Aktualności</h1>
+    <h1 class="site-title">AKTUALNOŚCI</h1>
         {% for post in posts %}
             <a href="{{ post.get_absolute_url }}">
-                <img src="{{ post.image.url }}" width="202">
+                <img src="{{ post.image.url }}" class="news-image-list">
             </a>
             <h2>
-                <a href="{{ post.get_absolute_url }}">
+                <a href="{{ post.get_absolute_url }}" class="news-title-list">
                     {{ post.title }}
                 </a>
             </h2>
-            {{ post.body|truncatewords:50|linebreaks }}
+            <span class="news-text-list">{{ post.body|truncatewords:50|linebreaks }}</span>
             <p class="date">
                 Opublikowano {{ post.published_date }} przez {{ post.author }}
             </p>

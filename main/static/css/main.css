@@ -86,3 +86,31 @@ a {
 #content {
     margin: 30px 350px 30px 350px;
 }
+.site-title{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 70px;
+}
+.news-image-list{
+    width: 300px;
+    float: left;
+    margin: 5px;
+}
+.news-title-list {
+    font-size: 25px;
+    font-weight: bold;
+}
+.news-text-list {
+    font-size: 20px;
+}
+.date {
+    font-size: 16px;
+    font-style: italic;
+    float: right;
+}
+
+/* NEWS_DETAIL */
+
+.news-title-detail {
+    font-size: 50px;
+}

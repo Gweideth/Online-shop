@@ -3,16 +3,16 @@
 {% block title %} {{ post.title }} {% endblock %}
 
 {% block content %}
-    <h1>GEO Aktualności</h1>
-    <img src="{{ post.image.url }}" width="349">
-    <h1>{{ post.title }}</h1>
+    <h1 class="site-title">AKTUALNOŚCI</h1>
+    <img src="{{ post.image.url }}" width="349" class="news-image-list">
+    <h1 class="news-title-detail">{{ post.title }}</h1>
     <p class="date">
         Opublikowany {{ post.published_date }} przez {{ post.author }}
     </p>
     {{ post.body|linebreaks }}
 
     {% with comments.count as total_comments %}
-        <h2>
+        <h2 class="comments_count">
             {{ total_comments }} komentarz{{ total_comments|pluralize:"y" }}
         </h2>
     {% endwith %}
