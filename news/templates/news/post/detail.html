@@ -1,16 +1,18 @@
 {% extends "main/base.html" %}
 
-{% block title %} {{ post.title }} {% endblock %}
+{% block title %} GEO {{ post.title }} {% endblock %}
 
 {% block content %}
     <h1 class="site-title">AKTUALNOŚCI</h1>
-    <img src="{{ post.image.url }}" width="349" class="news-image-list">
+    <img src="{{ post.image.url }}" class="news-image-detail">
     <h1 class="news-title-detail">{{ post.title }}</h1>
-    <p class="date">
+    <p class="date-detail">
         Opublikowany {{ post.published_date }} przez {{ post.author }}
     </p>
-    {{ post.body|linebreaks }}
-
+    <h5 class="news-text-detail">
+        {{ post.body|linebreaks }}
+    </h5>
+    <div class="comments-line"></div>
     {% with comments.count as total_comments %}
         <h2 class="comments_count">
             {{ total_comments }} komentarz{{ total_comments|pluralize:"y" }}
@@ -30,7 +32,7 @@
     {% if new_comment %}
         <h2>Komentarz dodany.</h2>
     {% else %}
-        <h2>Dodaj nowy komentarz</h2>
+        <h2 class="add-new-comment">Dodaj nowy komentarz</h2>
         <form method="post" action="{{ post.get_absolute.url }}">
             {{ comment_form.as_p }}
             {%  csrf_token %}

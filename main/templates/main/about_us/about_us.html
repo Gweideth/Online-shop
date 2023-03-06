@@ -5,5 +5,17 @@
 {% endblock %}
 
 {% block content %}
-O NAS
+    <h1 class="site-title">O NAS</h1>
+    <p class="about-us-welcome">
+
+    </p>
+    <div class="announcements">
+        <p class="about-us-title">
+            Najnowszy wpis
+        </p>
+        <li>{{ latest_news.title }}</li>
+        <li>Opublikowano {{ latest_news.published_date }} przez {{ latest_news.author }}</li>
+        <li>{{ latest_news.body|truncatewords:50}}</li>
+    </div>
+
 {% endblock %}
