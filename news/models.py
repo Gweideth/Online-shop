@@ -28,6 +28,7 @@ class Post(models.Model):
                               choices=STATUS_CHOICES,
                               default="draft")
     published_date = models.DateTimeField(default=timezone.now)
+    announcement = models.BooleanField(default=False)
 
     objects = models.Manager()
     published = PublishedManager()

@@ -1,12 +1,13 @@
 {% extends "main/base.html" %}
+{% load static %}
 
-{% block title %}GEO Aktualności{% endblock %}
+{% block title %}GEO AKTUALNOŚCI{% endblock %}
 
 {% block content %}
     <h1 class="site-title">AKTUALNOŚCI</h1>
         {% for post in posts %}
             <a href="{{ post.get_absolute_url }}">
-                <img src="{{ post.image.url }}" class="news-image-list">
+                <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "image/no_image.png" %}{% endif %}" class="news-image-list">
             </a>
             <h2>
                 <a href="{{ post.get_absolute_url }}" class="news-title-list">
