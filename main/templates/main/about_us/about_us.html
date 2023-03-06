@@ -9,13 +9,15 @@
     <p class="about-us-welcome">
 
     </p>
-    <div class="announcements">
-        <p class="about-us-title">
-            Najnowszy wpis
-        </p>
-        <li>{{ latest_news.title }}</li>
-        <li>Opublikowano {{ latest_news.published_date }} przez {{ latest_news.author }}</li>
-        <li>{{ latest_news.body|truncatewords:50}}</li>
+    <div class="announcement">
+        {% for post in announcement %}
+            {{ post.body|truncatewords:30|linebreaks }}
+            {{ post.published_date }}
+            <a href="{{ post.get_absolute_url }}">Czytaj więcej </a>
+        {% endfor %}
+    </div>
+    <div>
+        <p class="about-us-description">tekst tekst</p>
     </div>
 
 {% endblock %}

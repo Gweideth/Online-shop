@@ -1,10 +1,11 @@
 {% extends "main/base.html" %}
+{% load static %}
 
 {% block title %} GEO {{ post.title }} {% endblock %}
 
 {% block content %}
     <h1 class="site-title">AKTUALNOŚCI</h1>
-    <img src="{{ post.image.url }}" class="news-image-detail">
+    <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "image/no_image.png" %}{% endif %}" class="news-image-detail">
     <h1 class="news-title-detail">{{ post.title }}</h1>
     <p class="date-detail">
         Opublikowany {{ post.published_date }} przez {{ post.author }}
