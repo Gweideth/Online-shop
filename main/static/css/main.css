@@ -166,8 +166,10 @@ a {
 
 /* <MAIN SITE */
 
-.announcements {
-
+.announcement {
+    border: red solid 2px;
+    width: 100%;
+    height: 120px;
 }
 .about-us-title {
     font-size: 25px;
