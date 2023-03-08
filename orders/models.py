@@ -1,12 +1,18 @@
 from django.db import models
 from shop.models import Product
+from django.core.exceptions import ValidationError
+
+
+def postal_int(self):
+    if not self.isdigit():
+        raise ValidationError("Niepoprawne znaki!")
 
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    postal_code = models.CharField(max_length=10)
+    postal_code = models.CharField(max_length=10, validators=[postal_int])
     city = models.CharField(max_length=50)
     address = models.CharField(max_length=250)
     created = models.DateTimeField(auto_now_add=True)
