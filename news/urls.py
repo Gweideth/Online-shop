@@ -1,15 +1,16 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from . import views
+from news.views import PostListView, post_detail
 
 app_name = "news"
 
 urlpatterns = [
-    path("news/", views.PostListView.as_view(),
+    path("news/",
+         PostListView.as_view(),
          name="post_list"),
     path("news/<int:year>/<int:month>/<int:day>/<slug:post>",
-         views.post_detail,
+         post_detail,
          name="post_detail"),
 ]
 

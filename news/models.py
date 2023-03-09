@@ -53,7 +53,7 @@ class Comments(models.Model):
                              on_delete=models.CASCADE,
                              related_name="comments")
     author = models.CharField(max_length=30)
-    body = models.CharField(max_length=200)
+    body = models.CharField(max_length=200, help_text="Maksymalnie 200 znaków")
     published_date = models.DateTimeField(default=timezone.now())
     active = models.BooleanField(default=True)
 
@@ -65,6 +65,3 @@ class Comments(models.Model):
         return f"Komentarz dodany przez {self.author}"
 
 
-from django.db import models
-
-# Create your models here.

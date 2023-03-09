@@ -12,9 +12,9 @@ class Order(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
-    postal_code = models.CharField(max_length=10, validators=[postal_int])
+    postal_code = models.CharField(max_length=10, validators=[postal_int], help_text="Dozwolone tylko znaki liczbowe")
     city = models.CharField(max_length=50)
-    address = models.CharField(max_length=250)
+    address = models.CharField(max_length=250, help_text="Maksymalnie 250 znaków")
     created = models.DateTimeField(auto_now_add=True)
     paid = models.BooleanField(default=False)
 

@@ -1,19 +1,19 @@
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from . import views
+from shop.views import product_list, product_detail
 
 app_name = "shop"
 
 urlpatterns = [
     path("store/",
-         views.product_list,
+         product_list,
          name="product_list"),
     path("store/<slug:category_slug>/",
-         views.product_list,
+         product_list,
          name="product_list_by_category"),
     path("store/<int:id>/<slug:slug>/",
-         views.product_detail,
+         product_detail,
          name="product_detail"),
 ]
 if settings.DEBUG:
