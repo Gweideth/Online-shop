@@ -11,13 +11,13 @@
     </p>
     <div class="announcement">
         {% for post in announcement %}
-            {{ post.body|truncatewords:30|linebreaks }}
-            {{ post.published_date }}
-            <a href="{{ post.get_absolute_url }}">Czytaj więcej </a>
+            {{ post.body|truncatewords:100|linebreaks }}
+            {{ post.published_date }} <br>
+            <a class="read-more" href="{{ post.get_absolute_url }}">Czytaj więcej </a>
         {% endfor %}
     </div>
     <div>
-        <p class="about-us-description">tekst tekst</p>
+        <p class="about-us-description">Opis firmy Opis firmy Opis firmy Opis firmy</p>
     </div>
 
 {% endblock %}

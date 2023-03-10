@@ -6,18 +6,20 @@
 {% block content %}
     <h1 class="site-title">AKTUALNOŚCI</h1>
         {% for post in posts %}
-            <a href="{{ post.get_absolute_url }}">
-                <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "image/no_image.png" %}{% endif %}" class="news-image-list">
-            </a>
-            <h2>
-                <a href="{{ post.get_absolute_url }}" class="news-title-list">
-                    {{ post.title }}
+            <div class="news-list">
+                <a href="{{ post.get_absolute_url }}">
+                    <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static "image/no_image.png" %}{% endif %}" class="news-image-list">
                 </a>
-            </h2>
-            <span class="news-text-list">{{ post.body|truncatewords:50|linebreaks }}</span>
-            <p class="date">
-                Opublikowano {{ post.published_date }} przez {{ post.author }}
-            </p>
+                <h2>
+                    <a href="{{ post.get_absolute_url }}" class="news-title-list">
+                        {{ post.title }}
+                    </a>
+                </h2>
+                <span class="news-text-list">{{ post.body|truncatewords:100|linebreaks }}</span>
+                <p class="date">
+                    Opublikowano {{ post.published_date }} przez {{ post.author }}
+                </p>
+            </div>
         {% endfor %}
     {% include "pagination.html" with page=page_obj %}
 {% endblock %}

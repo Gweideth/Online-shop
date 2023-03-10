@@ -22,7 +22,8 @@
   </div>
   <div id="main" class="product-list">
     <h1 class="category-selected">{% if category %}{{ category.name }}{% else %}Wszystkie produkty{% endif %}</h1>
-    {% for product in products %}
+    <div class="row">
+      {% for product in products %}
       <div class="item">
         <a href="{{ product.get_absolute_url }}">
           <img src="{{ product.image.url }}" width="202">
@@ -32,5 +33,6 @@
         {{ product.price }} zł
       </div>
     {% endfor %}
+    </div>
   </div>
 {% endblock %}
