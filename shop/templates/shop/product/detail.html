@@ -8,6 +8,12 @@
 {% block content %}
     <h1 class="site-title">SKLEP</h1>
   <div class="product-detail">
+  <div class="cart-add">
+        <form action="{% url "cart:cart_add" product.id %}" method="post">
+          {{ cart_product_form }}
+          {% csrf_token %}
+          <input type="submit" value="Dodaj do koszyka">
+  </div>
     <img src="{{ product.image.url }}" width="349" class="news-image-detail">
     <h1 class="news-title-detail">{{ product.name }}</h1>
     <h2>
@@ -17,10 +23,6 @@
         <p class="price">Cena produktu: {{ product.price }} zł</p>
     </h2>
       <h5 class="news-text-detail">{{ product.description|linebreaks }}</h5>
-      <form action="{% url "cart:cart_add" product.id %}" method="post">
-          {{ cart_product_form }}
-          {% csrf_token %}
-          <input type="submit" value="Dodaj do koszyka">
       </form>
   </div>
 {% endblock %}

@@ -213,7 +213,7 @@ input[type=submit] {
 }
 .item {
     float: left;
-    width: 50%;
+    width: 33%;
     padding:10px
 }
 .row:after {
@@ -225,4 +225,7 @@ input[type=submit] {
     font-size: 20px;
     font-weight: bold;
     margin: 20px 0 20px 0;
+}
+.cart-add {
+    float: right;
 }
