@@ -2,6 +2,7 @@ import time
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
+
 driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get(url="http://127.0.0.1:8000/admin")
 
