@@ -7,6 +7,7 @@
 3.1. Run
 3.2. Creating superuser to managing admin-panel
 4. Status
+5. Planned expansions
 
 ## 1. General info
 This project is an e-commerce platform designed for small businesses trading specialized in equipment-in this case, surveying equipment. In addition to the store layer, there is a blog-like sub-site. Its purpose is to be able to publish reviews of new products in the industry, events, news etc. The site can also be used for other purposes, not only surveying; the backend page is flexible enough to post any products and categories.
@@ -67,3 +68,12 @@ The superuser will be created if all the fields are entered correctly.
 ## 4. Status
 
 Project is in progress.
+
+## 5. Planned expansions
+
+* User login and registration functionality
+* Edit user profile, ability to save personal information for purchasing purposes
+* Extend the functionality of the main site 
+* CONTACT page with a contact form
+* Payment gateway
+* Ability for admin to edit News, products and categories from the page 
