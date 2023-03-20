@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "orders.apps.OrdersConfig",
     "main.apps.MainConfig",
     "news.apps.NewsConfig",
+    "account.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
