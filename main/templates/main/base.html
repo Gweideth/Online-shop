@@ -15,6 +15,14 @@
         </ul>
     </div>
     <div class="subheader">
+        <div class="user">
+            {% if request.user.is_authenticated %}
+                Witaj, {{ request.user.first_name }}!
+                <a href="{% url "logout" %}">Wyloguj</a>
+            {% else %}
+                <a href="{% url "login" %}">Zaloguj</a>
+            {% endif %}
+        </div>
         <div class="cart">
             {% with total_items=cart|length %}
                 {% if cart|length > 0 %}

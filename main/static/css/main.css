@@ -14,12 +14,15 @@
     list-style-type: none;
 }
 .subheader {
-    text-align: right;
+    display: flex;
 }
 .cart {
     font-size: 20px;
-    padding-right: 10%;
-
+}
+.user {
+    width: 80%;
+    font-size: 20px;
+    padding-left: 10%;
 }
 .header-line {
     position: absolute;
